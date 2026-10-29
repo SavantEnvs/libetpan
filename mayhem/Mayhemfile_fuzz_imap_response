@@ -1,0 +1,10 @@
+project: savantenvs/libetpan
+target: fuzz_imap_response
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_imap_response/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_imap_response
+    libfuzzer: true
+    dictionary: /mayhem/tests/fuzz/imap.dict
+    timeout: 10
